@@ -20,7 +20,7 @@ PlayOut picks it up.
   opens a pull request labelled `suggestion`. Nothing reaches `main` until the owner approves it (merges the pull
   request) in PlayOut or on GitHub; Reject closes it.
 - **`main` is locked to the owner.** A ruleset lets only the owner (and the Action that rebuilds `all.json`)
-  write `main`; the relay works through a separate bot account that can only push `suggest/...` branches and open
+  write `main`; the relay signs in as a GitHub App (shown as `<app>[bot]`) that can only push `suggest/...` branches and open
   pull requests (metadata-relay/SETUP.md, step 5).
 - **Artwork is not here.** Covers, heroes and logos a user picks stay on their PC.
 
