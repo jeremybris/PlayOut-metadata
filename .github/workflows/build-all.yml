@@ -25,9 +25,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # main is locked by a ruleset (only the owner and this deploy key may write it; GitHub Actions itself cannot be
+      # exempted on a personal repository), so the checkout and the push use the deploy key.
       - uses: actions/checkout@v4
         with:
           ref: main
+          ssh-key: ${{ secrets.ALL_JSON_DEPLOY_KEY }}
 
       - uses: actions/setup-node@v4
         with:
