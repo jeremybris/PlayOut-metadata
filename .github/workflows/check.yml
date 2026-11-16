@@ -1,0 +1,41 @@
+# Validates the files a pull request changes (the relay's suggestions and any hand-made PR) against schema.json.
+# The scripts and the schema come from main, never from the pull request, so a PR cannot change the rules it is
+# checked by; the PR's files are only read as data.
+name: Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out main (the rules)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: rules
+
+      - name: Check out the pull request (the files)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate the changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CHECK_SUGGESTION: ${{ contains(github.event.pull_request.labels.*.name, 'suggestion') && '1' || '0' }}
+        run: |
+          git -C pr diff --name-only "$BASE_SHA"...HEAD > changed.txt
+          cat changed.txt
+          xargs -d '\n' -a changed.txt node rules/scripts/check.mjs --root pr

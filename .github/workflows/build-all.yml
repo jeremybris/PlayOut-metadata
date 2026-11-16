@@ -1,0 +1,67 @@
+# Rebuilds all.json (the file every PlayOut downloads) from games/*.json on every push to main, validating each
+# file against schema.json, and commits it when it changed. Pushes made with GITHUB_TOKEN do not start workflows,
+# so the commit does not run this again.
+name: Build all.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'games/**'
+      - 'config.json'
+      - 'schema.json'
+      - 'scripts/**'
+      - '.github/workflows/build-all.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-all
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build all.json
+        id: build
+        run: node scripts/build-all.mjs
+        continue-on-error: true
+
+      - name: Commit all.json
+        run: |
+          if git diff --quiet -- all.json; then
+            echo "all.json is up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add all.json
+          git commit -m "Rebuild all.json"
+          # Another push may have landed meanwhile: rebuild on top of it.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git reset --hard origin/main
+            node scripts/build-all.mjs || true
+            if git diff --quiet -- all.json; then exit 0; fi
+            git add all.json
+            git commit -m "Rebuild all.json"
+          done
+          exit 1
+
+      - name: Report invalid files
+        if: steps.build.outcome == 'failure'
+        run: |
+          echo "Some games/*.json files are invalid and were left out of all.json (see the Build step)."
+          exit 1

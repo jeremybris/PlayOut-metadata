@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jeremybris/PlayOut-metadata/blob/main/schema.json",
+  "title": "PlayOut metadata correction (games/<key>.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["key", "fields"],
+  "properties": {
+    "key": {
+      "description": "The game key; the file name without .json. steam-<appid>, <store>-<id>, <systemId>-<serial or title>, or <title>.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250,
+      "pattern": "^[a-z0-9_](?:[a-z0-9._-]*[a-z0-9_])?$"
+    },
+    "title": {
+      "description": "The game's name, for humans reading the file.",
+      "type": "string",
+      "maxLength": 300
+    },
+    "updatedAt": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "fields": {
+      "description": "The corrected fields. A field that is present replaces the scraped value; an empty one ('' / [] / 0 / {}) says the game has none.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "maxLength": 300 },
+        "description": { "type": "string", "maxLength": 20000 },
+        "shortDescription": { "type": "string", "maxLength": 2000 },
+        "releaseDate": {
+          "description": "YYYY, YYYY-MM or YYYY-MM-DD; '' = no date.",
+          "type": "string",
+          "pattern": "^(\\d{4}(-\\d{2}(-\\d{2})?)?)?$"
+        },
+        "developers": { "$ref": "#/$defs/list" },
+        "publishers": { "$ref": "#/$defs/list" },
+        "genres": { "$ref": "#/$defs/list" },
+        "tags": { "$ref": "#/$defs/list" },
+        "localPlayers": {
+          "description": "Most local players; 0 = none.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "controls": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["controller", "vr"],
+          "properties": {
+            "controller": { "enum": ["full", "partial", "none"] },
+            "vr": { "enum": ["only", "supported", "none"] }
+          }
+        },
+        "hltb": {
+          "description": "HowLongToBeat hours; a time left out has none.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "main": { "$ref": "#/$defs/hours" },
+            "extra": { "$ref": "#/$defs/hours" },
+            "completionist": { "$ref": "#/$defs/hours" },
+            "solo": { "$ref": "#/$defs/hours" }
+          }
+        },
+        "reviewScore": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "score": { "type": "number", "minimum": 0, "maximum": 100 },
+            "source": { "enum": ["steam", "igdb"] }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "list": {
+      "type": "array",
+      "maxItems": 50,
+      "items": { "type": "string", "maxLength": 200 }
+    },
+    "hours": { "type": "number", "minimum": 0, "maximum": 100000 }
+  }
+}
