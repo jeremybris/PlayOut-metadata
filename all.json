@@ -1,5 +1,9 @@
 {
-  "generatedAt": "2026-11-17T00:23:36.396Z",
+  "generatedAt": "2026-11-17T00:38:53.454Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
-  "games": {}
+  "games": {
+    "steam-2215260": {
+      "localPlayers": 4
+    }
+  }
 }
