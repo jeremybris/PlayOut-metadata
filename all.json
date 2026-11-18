@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T00:16:44.431Z",
+  "generatedAt": "2026-11-18T00:17:09.401Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -16,6 +16,12 @@
     },
     "steam-2446550": {
       "localPlayers": 4
+    },
+    "xbox360-2014-fifa-world-cup-brazil": {
+      "localPlayers": 4
+    },
+    "xbox360-army-of-two": {
+      "localPlayers": 2
     },
     "xbox360-army-of-two-the-40th-day": {
       "localPlayers": 2
