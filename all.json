@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:06:57.209Z",
+  "generatedAt": "2026-11-18T01:07:19.650Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -10,6 +10,9 @@
     },
     "rom-xbox-007-nightfire": {
       "localPlayers": 4
+    },
+    "rom-xbox-burnout-3-takedown": {
+      "localPlayers": 2
     },
     "steam-2215260": {
       "localPlayers": 4
