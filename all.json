@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:09:48.361Z",
+  "generatedAt": "2026-11-18T01:10:03.860Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -55,6 +55,9 @@
     },
     "xbox360-madden-nfl-08": {
       "localPlayers": 4
+    },
+    "xbox360-midnight-club-los-angeles-complete-edition": {
+      "localPlayers": 1
     },
     "xbox360-the-bigs-2": {
       "localPlayers": 2
