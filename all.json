@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:09:07.461Z",
+  "generatedAt": "2026-11-18T01:09:48.361Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -15,6 +15,9 @@
       "localPlayers": 2
     },
     "rom-xbox-lord-of-the-rings-the-the-two-towers": {
+      "localPlayers": 2
+    },
+    "rom-xbox-midnight-club-3-dub-edition-remix": {
       "localPlayers": 2
     },
     "steam-2215260": {
