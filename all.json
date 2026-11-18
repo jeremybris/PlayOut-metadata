@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:08:37.310Z",
+  "generatedAt": "2026-11-18T01:08:52.386Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -12,6 +12,9 @@
       "localPlayers": 4
     },
     "rom-xbox-burnout-3-takedown": {
+      "localPlayers": 2
+    },
+    "rom-xbox-lord-of-the-rings-the-the-two-towers": {
       "localPlayers": 2
     },
     "steam-2215260": {
