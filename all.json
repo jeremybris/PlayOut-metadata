@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:07:49.081Z",
+  "generatedAt": "2026-11-18T01:08:15.044Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -36,6 +36,12 @@
       "localPlayers": 2
     },
     "xbox360-dragon-ball-z-burst-limit": {
+      "localPlayers": 2
+    },
+    "xbox360-gears-of-war-2": {
+      "localPlayers": 2
+    },
+    "xbox360-gears-of-war-3": {
       "localPlayers": 2
     },
     "xbox360-the-bigs-2": {
