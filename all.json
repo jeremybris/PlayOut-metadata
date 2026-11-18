@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:13:52.704Z",
+  "generatedAt": "2026-11-18T01:14:07.106Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -42,6 +42,9 @@
       "localPlayers": 4
     },
     "switch-mlb-the-show-26": {
+      "localPlayers": 4
+    },
+    "switch-super-mario-party-jamboree": {
       "localPlayers": 4
     },
     "switch-super-mario-party-patched": {
