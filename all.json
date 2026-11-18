@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:08:15.044Z",
+  "generatedAt": "2026-11-18T01:08:37.310Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -43,6 +43,9 @@
     },
     "xbox360-gears-of-war-3": {
       "localPlayers": 2
+    },
+    "xbox360-madden-nfl-08": {
+      "localPlayers": 4
     },
     "xbox360-the-bigs-2": {
       "localPlayers": 2
