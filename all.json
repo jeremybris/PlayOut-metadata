@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:07:19.650Z",
+  "generatedAt": "2026-11-18T01:07:49.081Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -33,6 +33,9 @@
       "localPlayers": 2
     },
     "xbox360-burnout-revenge": {
+      "localPlayers": 2
+    },
+    "xbox360-dragon-ball-z-burst-limit": {
       "localPlayers": 2
     },
     "xbox360-the-bigs-2": {
