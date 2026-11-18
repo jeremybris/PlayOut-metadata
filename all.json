@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T00:17:09.401Z",
+  "generatedAt": "2026-11-18T01:06:57.209Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -30,6 +30,9 @@
       "localPlayers": 2
     },
     "xbox360-burnout-revenge": {
+      "localPlayers": 2
+    },
+    "xbox360-the-bigs-2": {
       "localPlayers": 2
     }
   }
