@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:10:03.860Z",
+  "generatedAt": "2026-11-18T01:10:15.458Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -18,6 +18,9 @@
       "localPlayers": 2
     },
     "rom-xbox-midnight-club-3-dub-edition-remix": {
+      "localPlayers": 2
+    },
+    "rom-xbox-ssx-3": {
       "localPlayers": 2
     },
     "steam-2215260": {
