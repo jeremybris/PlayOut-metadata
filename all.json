@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:12:29.225Z",
+  "generatedAt": "2026-11-18T01:13:35.384Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -39,6 +39,9 @@
       "localPlayers": 4
     },
     "switch-mlb-the-show-25": {
+      "localPlayers": 4
+    },
+    "switch-mlb-the-show-26": {
       "localPlayers": 4
     },
     "xbox360-2014-fifa-world-cup-brazil": {
