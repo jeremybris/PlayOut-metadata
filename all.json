@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:10:56.813Z",
+  "generatedAt": "2026-11-18T01:12:18.422Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -12,6 +12,9 @@
       "localPlayers": 4
     },
     "rom-xbox-burnout-3-takedown": {
+      "localPlayers": 2
+    },
+    "rom-xbox-lord-of-the-rings-the-the-return-of-the-king": {
       "localPlayers": 2
     },
     "rom-xbox-lord-of-the-rings-the-the-two-towers": {
@@ -69,6 +72,9 @@
       "localPlayers": 1
     },
     "xbox360-the-bigs-2": {
+      "localPlayers": 2
+    },
+    "xbox360-tom-clancy-s-ghost-recon-advanced-warfighter": {
       "localPlayers": 2
     }
   }
