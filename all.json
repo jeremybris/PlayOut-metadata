@@ -1,9 +1,12 @@
 {
-  "generatedAt": "2026-11-18T00:10:49.201Z",
+  "generatedAt": "2026-11-18T00:15:48.077Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
       "localPlayers": 1
+    },
+    "rom-xbox-007-agent-under-fire": {
+      "localPlayers": 4
     },
     "steam-2215260": {
       "localPlayers": 4
