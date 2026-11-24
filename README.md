@@ -4,22 +4,28 @@ Each game's stable facts for [PlayOut](https://github.com/jeremybris), as plain 
 the release date, the genres, the Steam tags, the developers, the publishers and the number of local players. Every
 PlayOut reads it to fill a game's facts at once, before any scraper runs, and adds the games it lacks.
 
+This is the **`database` branch** of [PlayOut-metadata](https://github.com/jeremybris/PlayOut-metadata)
+(https://github.com/jeremybris/PlayOut-metadata/tree/database), a branch of its own with no history shared with
+`main`. Rows here are added automatically by the PlayOut relay; the repository's `main` branch holds the metadata
+corrections, which stay approved by the owner.
+
 What changes over time is not here: How Long To Beat times, install sizes and review scores. Neither are descriptions
 or artwork, which PlayOut still gets from its scrapers.
 
-## How PlayOut uses this repository
+## How PlayOut uses this branch
 
 - **Everyone reads it, no account needed.** PlayOut downloads the files of the games in its library from
-  `https://raw.githubusercontent.com/jeremybris/PlayOut-database/main/data/<prefix>/<nn>.csv` (with
+  `https://raw.githubusercontent.com/jeremybris/PlayOut-metadata/database/data/<prefix>/<nn>.csv` (with
   `If-None-Match`, at most every 6 hours per file) and keeps a copy for offline use.
 - **First, not only.** When PlayOut fetches a game's metadata (a new game, or **Refresh metadata**), a row here fills
   the game's facts; the scrapers still add the description, the artwork and anything the row leaves empty. A game this
-  repository lacks is scraped as before.
-- **The database grows by itself.** After PlayOut scrapes a game this repository lacks, it sends the game's facts to
-  the PlayOut relay (a Cloudflare Worker), which checks them and adds the row. Settings › Metadata › PlayOut database
-  turns this off.
+  branch lacks is scraped as before.
+- **The database grows by itself.** After PlayOut scrapes a game this branch lacks, it sends the game's facts to the
+  PlayOut relay (a Cloudflare Worker), which checks them and commits the row to this branch (it may write nothing
+  else: not `main`, not any other branch, no file outside `data/`). Settings › Metadata › PlayOut database turns this
+  off.
 - **Rows are only added, never replaced by others.** The relay only appends rows for games the database does not have
-  yet. Corrections go through the pen (Edit) on a game's page in PlayOut, as suggestions to
+  yet. Corrections go through the pen (Edit) on a game's page in PlayOut, as suggestions to the `main` branch of
   [PlayOut-metadata](https://github.com/jeremybris/PlayOut-metadata) that the owner approves.
 - **What is sent:** a game's key, title and the facts above, with a random id of the PlayOut install (for rate limits).
   No account, user name, file path or play time, and never a user's own edits.
@@ -63,7 +69,7 @@ letter), so the files open safely in any spreadsheet. A row needs at least one f
 
 ### Game key
 
-The same keys as [PlayOut-metadata](https://github.com/jeremybris/PlayOut-metadata):
+The same keys as the metadata corrections on [`main`](https://github.com/jeremybris/PlayOut-metadata):
 
 - `steam-<appid>` when the Steam app id is known (`steam-620`);
 - `<store>-<id>` for GOG, Epic, EA, Ubisoft, Battle.net and Xbox games (`gog-1207658924`);
