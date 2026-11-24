@@ -23,6 +23,11 @@ PlayOut picks it up.
   write `main`; the relay signs in as a GitHub App (shown as `<app>[bot]`) that can only push `suggest/...` branches and open
   pull requests (metadata-relay/SETUP.md, step 5).
 - **Artwork is not here.** Covers, heroes and logos a user picks stay on their PC.
+- **The `database` branch is the PlayOut database.** A separate branch,
+  [`database`](https://github.com/jeremybris/PlayOut-metadata/tree/database), with no history shared with `main`,
+  holds each game's stable facts as CSV (`data/<prefix>/<nn>.csv`), which every PlayOut reads first. The relay adds
+  rows there automatically (only new games, never changing a row); everything on `main` stays owner-approved, and the
+  Actions here run on `main` only.
 
 ## Files
 
