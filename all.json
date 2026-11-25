@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T20:48:18.942Z",
+  "generatedAt": "2026-11-25T20:48:36.568Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -82,6 +82,9 @@
       "difficulty": "easy"
     },
     "steam-570940": {
+      "difficulty": "hard"
+    },
+    "steam-601150": {
       "difficulty": "hard"
     },
     "steam-653530": {
