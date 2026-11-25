@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T20:42:26.282Z",
+  "generatedAt": "2026-11-25T20:42:45.172Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -53,6 +53,9 @@
     },
     "switch-super-mario-party-patched": {
       "localPlayers": 4
+    },
+    "switch-the-legend-of-zelda-tears-of-the-kingdom": {
+      "difficulty": "easy"
     },
     "xbox360-2014-fifa-world-cup-brazil": {
       "localPlayers": 4
