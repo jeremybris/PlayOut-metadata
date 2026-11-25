@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T21:09:26.704Z",
+  "generatedAt": "2026-11-25T21:09:41.690Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -32,6 +32,9 @@
     },
     "rom-xbox-timesplitters-future-perfect": {
       "localPlayers": 4
+    },
+    "steam-1222140": {
+      "difficulty": "story"
     },
     "steam-1245620": {
       "difficulty": "hard"
