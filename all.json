@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T21:08:10.133Z",
+  "generatedAt": "2026-11-25T21:08:24.772Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -136,6 +136,9 @@
       "difficulty": "hard"
     },
     "steam-960910": {
+      "difficulty": "story"
+    },
+    "steam-960990": {
       "difficulty": "story"
     },
     "switch-mlb-the-show-25": {
