@@ -1,2 +1,5 @@
 key,title,platform,release_date,genres,tags,developers,publishers,local_players,steam_appid
 gba-spider-man-3,Spider-Man 3,gba,,Action,,,,,
+gba-super-mario-advance-3-yoshi-s-island,Super Mario Advance 3 - Yoshi's Island,gba,,Action|Platform,,,,1,
+gba-tom-clancy-s-splinter-cell-pandora-tomorrow,Tom Clancy's Splinter Cell - Pandora Tomorrow,gba,,Action|Stealth,,,,1,
+gba-x-men-the-official-game,X-Men - The Official Game,gba,,Beat 'em Up|Platform,,,,1,
