@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:14:07.106Z",
+  "generatedAt": "2026-11-25T20:42:10.502Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "psp-burnout-legends": {
@@ -15,7 +15,8 @@
       "localPlayers": 2
     },
     "rom-xbox-lord-of-the-rings-the-the-return-of-the-king": {
-      "localPlayers": 2
+      "localPlayers": 2,
+      "difficulty": "hard"
     },
     "rom-xbox-lord-of-the-rings-the-the-two-towers": {
       "localPlayers": 2
