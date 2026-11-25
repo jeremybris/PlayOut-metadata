@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T21:18:35.917Z",
+  "generatedAt": "2026-11-25T21:25:35.183Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "ps4-gravity-rush-2": {
@@ -38,6 +38,9 @@
     },
     "rom-xbox-timesplitters-future-perfect": {
       "localPlayers": 4
+    },
+    "steam-1001140": {
+      "difficulty": "medium"
     },
     "steam-1222140": {
       "difficulty": "story"
