@@ -1,7 +1,10 @@
 {
-  "generatedAt": "2026-11-25T21:12:17.312Z",
+  "generatedAt": "2026-11-25T21:14:16.334Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
+    "ps4-gravity-rush-2": {
+      "difficulty": "easy"
+    },
     "psp-burnout-legends": {
       "localPlayers": 1
     },
@@ -13,6 +16,9 @@
     },
     "rom-xbox-burnout-3-takedown": {
       "localPlayers": 2
+    },
+    "rom-xbox-harry-potter-and-the-chamber-of-secrets": {
+      "difficulty": "easy"
     },
     "rom-xbox-lord-of-the-rings-the-the-return-of-the-king": {
       "localPlayers": 2,
