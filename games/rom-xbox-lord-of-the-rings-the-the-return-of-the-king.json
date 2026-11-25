@@ -2,7 +2,8 @@
   "key": "rom-xbox-lord-of-the-rings-the-the-return-of-the-king",
   "title": "Lord of the Rings, The - The Return of the King",
   "fields": {
-    "localPlayers": 2
+    "localPlayers": 2,
+    "difficulty": "hard"
   },
-  "updatedAt": "2026-11-18T01:06:42.699Z"
+  "updatedAt": "2026-11-25T20:22:42.376Z"
 }
