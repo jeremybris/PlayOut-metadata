@@ -1,4 +1,5 @@
 key,title,platform,release_date,genres,tags,developers,publishers,local_players,steam_appid
+epic-024016801c114f02b6d4eeb1f5d95091,Blue Protocol: Star Resonance,pc,,,Anime|MMORPG|Action|Free to Play|Adventure|RPG|Massively Multiplayer|Action RPG|Character Customization|Fantasy|3D|Third Person|Magic|Open World|Sexual Content|Sci-fi|Multiplayer|Story Rich|Singleplayer|Co-op,A PLUS ENTERTAINMENT PTE. LTD.,,,3681810
 epic-0ad263edbcdb4980a28759a8ac1229de,Lovecraft's Untold Stories,pc,,,Lovecraftian|Action|Adventure|Action Roguelike|Indie|RPG|Roguelite|Pixel Graphics|Horror|Atmospheric|Singleplayer|Twin Stick Shooter|Dungeon Crawler|2D|Violent|Difficult|Action-Adventure|Roguelike|Great Soundtrack|Top-Down,Fulqrum Publishing Ltd.,,1,871420
 epic-2fb0eae795104757977dfe8f93b5e593,Submerged Hidden Depths,pc,,,Exploration|Relaxing|Walking Simulator|Female Protagonist|3D|Open World|Family Friendly|Atmospheric|Colorful|Emotional|Nature|Adventure|Singleplayer|Collectathon|Post-apocalyptic|Third Person|Controller|Puzzle Platformer|Multiplayer|Epic,Uppercut Games,,1,1614270
 epic-473e24df09f843a1acc4aa16b01dae83,Layers of Fear 2,pc,2020-04-30,,,Bloober Team,,1,
@@ -12,11 +13,13 @@ epic-78d04224756245b284d467c6b337ba7d,MythForce PTR,pc,,,,Beamdog,,,
 epic-7e3ea8e6a15542399541beda050c629c,The Darkside Detective,pc,,,Point & Click|Detective|Pixel Graphics|Adventure|Story Rich|Mystery|Comedy|Funny|Singleplayer|Indie|Supernatural|Puzzle|Retro|2D|Casual|Dark Humor|Lovecraftian|Cartoony|1980s|1990's,Akupara Games,,1,368390
 epic-9bc4423d873845739cc99ab69b6bfbe9,God's Trigger,pc,2020-07-30,,,Techland S.A.,,2,
 epic-a7270bff1bad44298091dd61c6c7bc00,Gigapocalypse,pc,,,Action|Casual|Arcade|2D|2D Fighter|Pixel Graphics|Colorful|Destruction|1990's|Dinosaurs|Indie|Retro|Dragons|Character Customization|Cute|Singleplayer|Incremental|Villain Protagonist,Headup Gmbh,,1,1543240
+epic-a922e114727142e8b24d1499c274f223,Dreamscaper,pc,,,Action Roguelike|Roguelite|Action|Indie|RPG|Dungeon Crawler|Singleplayer|Female Protagonist|Replay Value|Adventure|Great Soundtrack|Action RPG|Difficult|Hack and Slash|Roguelike|Atmospheric|Story Rich|Fantasy|Surreal|Top-Down,Freedom Games,,1,1040420
 epic-aafc587fbf654758802c8e41e4fb3255,ARK: Survival Evolved,pc,2020-03-28,,,Studio Wildcard,,,
 epic-aster,Heavy Rain,pc,2019-01-29,,Choices Matter|Story Rich|Multiple Endings|Cinematic|Detective|Adventure|Thriller|Quick-Time Events|Emotional|Investigation|Sexual Content|Interactive Fiction|Singleplayer|Mystery|Crime|Dynamic Narration|Atmospheric|Violent|Nudity|Third Person,Quantic Dream,,1,960910
 epic-b45e42c457304fd8bb077cd9bd70291d,Fear the Spotlight,pc,,,Adventure|Survival Horror|Atmospheric|Story Rich|Puzzle|Female Protagonist|Stealth|Exploration|Horror|Psychological Horror|Third Person|Retro|Surreal|Action-Adventure|Action|3D|Stylized|Linear|Pixel Graphics|Old School,Blumhouse Games,,1,1959390
 epic-bbe875bfeaa1414d908fc8278e3359a2,Back 4 Blood,pc,2020-12-04,,,Warner Bros.,,4,
 epic-c35b9699c4e24c56976b5bd8eceba464,Dandara: Trials of Fear Edition,pc,2021-01-11,,,Raw Fury,,1,
+epic-cadfdca223174573b3d4bbbfc0e3ddd1,Havendock,pc,,,Singleplayer|Strategy|City Builder|Colony Sim|Sandbox|Agriculture|Automation|Building|Crafting|Base Building|Management|Farming Sim|Life Sim|Relaxing|Casual|Open World|Resource Management|Simulation|Multiplayer|Time Management,Pretty Soon S.A.,,1,2020710
 epic-cd03160de3bf4f2789d32a3798501564,Monument Valley,pc,,,Puzzle|Relaxing|Adventure|Singleplayer|Casual|Exploration|Design & Illustration|Female Protagonist|Strategy|Emotional|3D|Point & Click|Puzzle Platformer|Third Person|Linear|Fantasy|Atmospheric|Indie|Mystery|Beautiful,ustwo games,,1,1927720
 epic-curry,ABZU,pc,2019-06-03,,,"Giant Squid, Inc.",,1,
 epic-d5cfb57c4c7f4a18a7ca6e695f845f73,The Last Stand: Aftermath,pc,,,,Armor Games Studios,,1,
@@ -25,7 +28,9 @@ epic-discus,For The King,pc,,,RPG|Online Co-Op|Turn-Based|Roguelike|Strategy|Mul
 epic-e25566912b57452b929cf8c333a16ca8,Maid of Sker,pc,,,,Wales Interactive,,1,
 epic-e3c0d11648554383b33da58d075fd101,Astro Duel 2,pc,,,Platformer|Top-Down Shooter|Local Multiplayer|2D Fighter|Funny|4 Player Local|PvP|2D Platformer|Arena Shooter|Arcade|Side Scroller|Pixel Graphics|Shooter|Controller|Swordplay|Cyberpunk|Destruction|Sci-fi|Action|Vehicular Combat,Wild Rooster,,6,655350
 epic-e4867c438f854da5a1d1f8c8609cac22,Tropico 5,pc,2020-05-08,,,Kalypso Media Group GmbH,,4,
+epic-e7d7c393d6f7499596e7d268a58b1970,Return to Ash,pc,,,Visual Novel|LGBTQ+|Emotional|Multiple Endings|Hand-drawn|Choices Matter|Adventure|Choose Your Own Adventure|Female Protagonist|Psychological|Story Rich|Singleplayer|Mystery|Controller|2D|Cartoony|Philosophical,Serenity Forge,,1,3445830
 epic-e87a43f695bc409ca8858206678ac7e7,shapez,pc,,,Automation|Base Building|Resource Management|Sandbox|Crafting|Strategy|Singleplayer|Management|Building|Open World|2D|Puzzle|Casual|Moddable|Simulation|Logic|Abstract|Procedural Generation|Indie|Family Friendly,tobspr Games,,1,1318690
+epic-f2360b908b804d7f92b98238b9ec315e,Pixel Gun 3D,pc,,,,Cubic Games Studio Ltd,,10,
 epic-f59de18db4dc445f88ffeff24d081234,Amnesia: Rebirth,pc,,,Action-Adventure|First-Person|Story Rich|Puzzle|Singleplayer|Horror|Adventure|Exploration|Stealth|Lovecraftian|Atmospheric|Survival Horror|Dark|Action|Psychological Horror|Physics|Mystery|Emotional|Female Protagonist|Gothic,Frictional Games,,1,999220
 epic-f7a456368be244ddbb2424774917a3a8,Let's Build a Zoo,pc,,,Simulation|Pixel Graphics|Management|City Builder|Sandbox|Strategy|Creature Collector|Building|Cute|Resource Management|Economy|Colorful|Singleplayer|Relaxing|Open World|Zoo|Animals|Indie|Dinosaurs|Cozy,No More Robots,,1,1547890
 epic-flagfin,Tacoma,pc,2020-03-09,,,Serenity Forge,,1,
