@@ -78,16 +78,23 @@ Keys are lower case: `a-z`, `0-9`, `.`, `_` and `-`.
 `key` must equal the file name; `title` is for people reading the file. Each field in `fields` is optional and
 replaces that whole field of the scraped metadata:
 
-| Field                                        | Type                                                                                     |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `title`                                      | text                                                                                     |
-| `description`, `shortDescription`            | plain text (no HTML)                                                                     |
-| `releaseDate`                                | `YYYY`, `YYYY-MM` or `YYYY-MM-DD`                                                        |
-| `developers`, `publishers`, `genres`, `tags` | lists of text (at most 50)                                                               |
-| `localPlayers`                               | most players on one PC, 0-64                                                             |
-| `controls`                                   | `{ "controller": "full" \| "partial" \| "none", "vr": "only" \| "supported" \| "none" }` |
-| `hltb`                                       | How Long to Beat hours: `{ "main", "extra", "completionist", "solo" }`, each optional    |
-| `reviewScore`                                | `{ "score": 0-100, "source": "steam" \| "igdb" }`                                        |
+| Field                                        | Type                                                                                                                                                                                                          |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`                                      | text                                                                                                                                                                                                          |
+| `description`, `shortDescription`            | plain text (no HTML)                                                                                                                                                                                          |
+| `releaseDate`                                | `YYYY`, `YYYY-MM` or `YYYY-MM-DD`                                                                                                                                                                             |
+| `developers`, `publishers`, `genres`, `tags` | lists of text (at most 50)                                                                                                                                                                                    |
+| `localPlayers`                               | most players on one PC, 0-64                                                                                                                                                                                  |
+| `controls`                                   | `{ "controller": "full" \| "partial" \| "none", "vr": "only" \| "supported" \| "none" }`, plus `"touch": true` (touch screen) and `"keyboard": true` (full mouse and keyboard beside the controller) when set |
+| `hltb`                                       | How Long to Beat hours: `{ "main", "extra", "completionist", "solo" }`, each optional                                                                                                                         |
+| `reviewScore`                                | `{ "score": 0-100, "source": "steam" \| "igdb" }`                                                                                                                                                             |
+
+`controls.touch` and `controls.keyboard` are newer than the rest. Push this `schema.json` (and these scripts) to the
+live repository and deploy the relay before releasing a PlayOut that writes them: an owner publish writes
+`games/<key>.json` directly, and `build-all.mjs` leaves a file the live schema refuses out of `all.json` (every
+correction of that game, not just its controls). An older PlayOut (0.9.90 and earlier) reads such a file as
+controller and vr only; publishing another field of the game from one with the owner token writes its controls
+back without the two flags, so publish from a current build once they exist.
 
 An empty value (`""`, `[]`, `0`) says the game has none and hides what the scrapers found. HTML, script URLs and
 control characters are refused everywhere.

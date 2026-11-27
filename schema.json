@@ -51,7 +51,15 @@
           "required": ["controller", "vr"],
           "properties": {
             "controller": { "enum": ["full", "partial", "none"] },
-            "vr": { "enum": ["only", "supported", "none"] }
+            "vr": { "enum": ["only", "supported", "none"] },
+            "touch": {
+              "description": "Touch screen support (the Edit sheet's Touch choice); only written when true.",
+              "type": "boolean"
+            },
+            "keyboard": {
+              "description": "Full mouse and keyboard support alongside a controller (Mouse & Keyboard + Controller, All); only written when true.",
+              "type": "boolean"
+            }
           }
         },
         "hltb": {
