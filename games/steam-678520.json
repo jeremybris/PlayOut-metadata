@@ -1,0 +1,12 @@
+{
+  "key": "steam-678520",
+  "title": "Gal*Gun VR",
+  "fields": {
+    "controls": {
+      "controller": "partial",
+      "vr": "supported",
+      "lightgun": true
+    }
+  },
+  "updatedAt": "2026-11-27T22:58:18.551Z"
+}
