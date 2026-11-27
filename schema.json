@@ -53,11 +53,15 @@
             "controller": { "enum": ["full", "partial", "none"] },
             "vr": { "enum": ["only", "supported", "none"] },
             "touch": {
-              "description": "Touch screen support (the Edit sheet's Touch choice); only written when true.",
+              "description": "Touch screen support (the Edit sheet's Touch pick); only written when true.",
               "type": "boolean"
             },
             "keyboard": {
-              "description": "Full mouse and keyboard support alongside a controller (Mouse & Keyboard + Controller, All); only written when true.",
+              "description": "Full mouse and keyboard support where it is not implied: beside a controller, or beside touch / a light gun with no controller or VR (the Edit sheet's Mouse & Keyboard pick); only written when true.",
+              "type": "boolean"
+            },
+            "lightgun": {
+              "description": "Played with a light gun (the Edit sheet's Lightgun pick, Filters > Controls > Lightgun); only written when true.",
               "type": "boolean"
             }
           }
