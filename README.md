@@ -22,6 +22,12 @@ PlayOut picks it up.
 - **`main` is locked to the owner.** A ruleset lets only the owner (and the Action that rebuilds `all.json`)
   write `main`; the relay signs in as a GitHub App (shown as `<app>[bot]`) that can only push `suggest/...` branches and open
   pull requests (metadata-relay/SETUP.md, step 5).
+- **Recompilations too.** A recompilation someone adds in PlayOut's Recompilations browser (a GitHub repository the
+  catalogs do not list) is published by the owner's PlayOut to `recomps/<owner>__<repo>.json`, or suggested by anyone
+  else's through the relay's `/suggest-recomp`: a pull request from `suggest/recomp/<owner>__<repo>-<id>` labelled
+  `recomp-suggestion`, which only changes that file. Review it on GitHub (the game and the console are the user's
+  words: edit them on the branch if they are wrong); merging puts it in `all.json`'s `recomps`, and every PlayOut
+  lists it.
 - **Artwork is not here.** Covers, heroes and logos a user picks stay on their PC.
 - **The `database` branch is the PlayOut database.** A separate branch,
   [`database`](https://github.com/jeremybris/PlayOut-metadata/tree/database), with no history shared with `main`,
@@ -31,15 +37,17 @@ PlayOut picks it up.
 
 ## Files
 
-| Path                              | What it is                                                                                     |
-| --------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `games/<key>.json`                | One corrected game (format below). The only files suggestions may change.                      |
-| `all.json`                        | Every game's fields in one file. **Built by the Action; never edit it by hand.**               |
-| `config.json`                     | `{ "relayUrl": "https://..." }`: the suggestion relay every PlayOut uses (copied to all.json). |
-| `schema.json`                     | JSON Schema of `games/<key>.json`.                                                             |
-| `scripts/`                        | `build-all.mjs` (rebuilds all.json), `check.mjs` (checks changed files), `validate.mjs`.       |
-| `.github/workflows/build-all.yml` | On every push to `main`: validate `games/*.json`, rebuild `all.json`, commit it if changed.    |
-| `.github/workflows/check.yml`     | On every pull request: validate the changed files (the rules come from `main`).                |
+| Path                              | What it is                                                                                                       |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `games/<key>.json`                | One corrected game (format below). The only files game suggestions may change.                                   |
+| `recomps/<owner>__<repo>.json`    | One recompilation added in PlayOut (format below). The only files recompilation suggestions may change.          |
+| `all.json`                        | Every game's fields and every recompilation in one file. **Built by the Action; never edit it by hand.**         |
+| `config.json`                     | `{ "relayUrl": "https://..." }`: the suggestion relay every PlayOut uses (copied to all.json).                   |
+| `schema.json`                     | JSON Schema of `games/<key>.json`.                                                                               |
+| `recomp-schema.json`              | JSON Schema of `recomps/<owner>__<repo>.json`.                                                                   |
+| `scripts/`                        | `build-all.mjs` (rebuilds all.json), `check.mjs` (checks changed files), `validate.mjs`.                         |
+| `.github/workflows/build-all.yml` | On every push to `main`: validate `games/*.json` and `recomps/*.json`, rebuild `all.json`, commit it if changed. |
+| `.github/workflows/check.yml`     | On every pull request: validate the changed files (the rules come from `main`).                                  |
 
 ### Game key
 
@@ -99,18 +107,58 @@ back without the two flags, so publish from a current build once they exist.
 An empty value (`""`, `[]`, `0`) says the game has none and hides what the scrapers found. HTML, script URLs and
 control characters are refused everywhere.
 
+### `recomps/<owner>__<repo>.json`
+
+```json
+{
+  "id": "github:zelda64recomp/zelda64recomp",
+  "repo": "Zelda64Recomp/Zelda64Recomp",
+  "repoUrl": "https://github.com/Zelda64Recomp/Zelda64Recomp",
+  "game": "The Legend of Zelda: Majora's Mask",
+  "systemId": "n64",
+  "blurb": "Static recompilation of Majora's Mask for PC.",
+  "addedAt": "2026-11-27T12:00:00.000Z",
+  "updatedAt": "2026-11-27T12:00:00.000Z"
+}
+```
+
+GitHub repositories only. `repo` is the repository as GitHub spells it; `id` is `github:` and `repo` in lower case,
+`repoUrl` is `https://github.com/` and `repo`, and the file name is `repo` in lower case with `/` as `__` (GitHub
+account names cannot hold `_`). `game` (one line, at most 200 characters) and `systemId` (PlayOut's system id of
+the original console, such as `n64`, `ps2`, `xbox360`, `pc`, or `other`: one of the `enum` in
+`recomp-schema.json`, which is exactly the list PlayOut keeps) are what the user said; `blurb` (one line, at most
+500) is optional. Neither holds tabs or other control characters. PlayOut reads only rows whose `id`, `repoUrl` and
+`repo` agree and whose `systemId` it knows; a catalog (decomp-buddy, RecompLauncher) that lists the same repository
+wins over the row.
+
+The relay checked the repository is public and has a release with a download; it does not check the game. Reject
+(close) a suggestion whose repository is not a recompilation.
+
 ### `all.json`
 
 ```json
 {
   "generatedAt": "2026-11-16T12:00:00.000Z",
   "relayUrl": "https://...",
-  "games": { "steam-620": { "...": "..." } }
+  "games": { "steam-620": { "...": "..." } },
+  "recomps": [
+    { "id": "github:...", "repo": "...", "repoUrl": "...", "game": "...", "systemId": "n64" }
+  ]
 }
 ```
 
-`games` maps each key to that file's `fields`. A file that does not match the schema is left out (and the Action
-run fails so it is noticed).
+`games` maps each key to that file's `fields`; `recomps` lists every recompilation file (without `updatedAt`), sorted
+by `id`. PlayOut 0.9.91 and earlier ignore `recomps`. A file that does not match its schema is left out (and the
+Action run fails so it is noticed).
+
+### Pull request checks
+
+`check.mjs` validates every changed `games/*.json` and `recomps/*.json`. A suggestion may change only its own kind of
+file: a head branch `suggest/recomp/...` (or the label `recomp-suggestion`) only `recomps/*.json`, any other
+`suggest/...` branch (or the label `suggestion`) only `games/*.json`. The head branch decides as well as the label,
+so a pull request whose label failed to go on is still held to its rule. Create the `recomp-suggestion` label once
+(GitHub creates it when the relay first adds it, but an older owner PlayOut lists only `suggestion` pull requests,
+so recompilation suggestions are reviewed on GitHub).
 
 ## Running the scripts locally
 
@@ -119,4 +167,5 @@ Node 18 or newer, no dependencies:
 ```sh
 node scripts/build-all.mjs                 # rebuild all.json
 node scripts/check.mjs games/steam-620.json  # check files
+CHECK_HEAD_REF=suggest/recomp/a__b-1 node scripts/check.mjs recomps/a__b.json  # as a recompilation suggestion
 ```

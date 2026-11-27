@@ -1,4 +1,5 @@
-# Validates the files a pull request changes (the relay's suggestions and any hand-made PR) against schema.json.
+# Validates the files a pull request changes (the relay's suggestions and any hand-made PR) against schema.json and
+# recomp-schema.json.
 # The scripts and the schema come from main, never from the pull request, so a PR cannot change the rules it is
 # checked by; the PR's files are only read as data.
 name: Check
@@ -35,6 +36,10 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           CHECK_SUGGESTION: ${{ contains(github.event.pull_request.labels.*.name, 'suggestion') && '1' || '0' }}
+          CHECK_RECOMP_SUGGESTION: ${{ contains(github.event.pull_request.labels.*.name, 'recomp-suggestion') && '1' || '0' }}
+          # The head branch decides too (suggest/... and suggest/recomp/...): a label that failed to go on must not
+          # leave a suggestion unrestricted.
+          CHECK_HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           git -C pr diff --name-only "$BASE_SHA"...HEAD > changed.txt
           cat changed.txt

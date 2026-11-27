@@ -1,13 +1,14 @@
-// A small JSON Schema validator for schema.json (no dependencies): the keywords that file uses ($ref to #/$defs,
-// type, enum, properties, required, additionalProperties: false, items, minLength, maxLength, maxItems, pattern,
-// minimum, maximum). Every string is also refused when it carries HTML tags or script URLs, and a record's key must be
-// its file name.
+// A small JSON Schema validator for schema.json and recomp-schema.json (no dependencies): the keywords those files use
+// ($ref to #/$defs, type, enum, properties, required, additionalProperties: false, items, minLength, maxLength,
+// maxItems, pattern, minimum, maximum). Every string is also refused when it carries HTML tags or script URLs, a game
+// record's key must be its file name, and a recompilation's id, page and file name must all name its repository.
 import { readFileSync } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const here = dirname(fileURLToPath(import.meta.url))
 export const schema = JSON.parse(readFileSync(join(here, '..', 'schema.json'), 'utf8'))
+export const recompSchema = JSON.parse(readFileSync(join(here, '..', 'recomp-schema.json'), 'utf8'))
 
 const UNSAFE_TEXT = [
   /<[a-zA-Z/!?]/,
@@ -98,5 +99,38 @@ export function validateGameFile(fileName, text) {
     errors.push(`$.key: must be "${key}" (the file name)`)
   if (key.includes('..') || (key.startsWith('steam-') && !/^steam-[1-9][0-9]{0,9}$/.test(key)))
     errors.push('file name: not a valid game key')
+  return { record: errors.length ? null : record, errors }
+}
+
+/** The file name (without .json) of a recompilation's record: "<owner>__<repo>" in lower case (owners have no '_'). */
+export function recompFileKey(repo) {
+  return String(repo).replace('/', '__').toLowerCase()
+}
+
+/** Errors of a recomps/<owner>__<repo>.json file's text (its name must be its repository's). */
+export function validateRecompFile(fileName, text) {
+  let record
+  try {
+    record = JSON.parse(text.replace(/^\uFEFF/, ''))
+  } catch (err) {
+    return { record: null, errors: [`not valid JSON (${err.message})`] }
+  }
+  const errors = validate(record, recompSchema, '$', recompSchema)
+  const key = basename(fileName).replace(/\.json$/, '')
+  if (key.endsWith('.lock') || key.length > 200 || key.includes('..'))
+    errors.push('file name: not a valid recompilation file name')
+  if (record && typeof record === 'object' && !Array.isArray(record)) {
+    const repo = typeof record.repo === 'string' ? record.repo : ''
+    const name = repo.split('/')[1] ?? ''
+    if (name === '.' || name === '..') errors.push('$.repo: not a repository name')
+    if (repo) {
+      if (record.id !== `github:${repo.toLowerCase()}`)
+        errors.push(`$.id: must be "github:${repo.toLowerCase()}" (the repository, lower case)`)
+      if (record.repoUrl !== `https://github.com/${repo}`)
+        errors.push(`$.repoUrl: must be "https://github.com/${repo}"`)
+      if (key !== recompFileKey(repo))
+        errors.push(`file name: must be "${recompFileKey(repo)}.json" (the repository)`)
+    }
+  }
   return { record: errors.length ? null : record, errors }
 }

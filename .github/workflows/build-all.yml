@@ -1,6 +1,6 @@
-# Rebuilds all.json (the file every PlayOut downloads) from games/*.json on every push to main, validating each
-# file against schema.json, and commits it when it changed. Pushes made with GITHUB_TOKEN do not start workflows,
-# so the commit does not run this again.
+# Rebuilds all.json (the file every PlayOut downloads) from games/*.json and recomps/*.json on every push to main,
+# validating each file against schema.json / recomp-schema.json, and commits it when it changed. Pushes made with
+# GITHUB_TOKEN do not start workflows, so the commit does not run this again.
 name: Build all.json
 
 on:
@@ -8,8 +8,10 @@ on:
     branches: [main]
     paths:
       - 'games/**'
+      - 'recomps/**'
       - 'config.json'
       - 'schema.json'
+      - 'recomp-schema.json'
       - 'scripts/**'
       - '.github/workflows/build-all.yml'
   workflow_dispatch:
@@ -66,5 +68,5 @@ jobs:
       - name: Report invalid files
         if: steps.build.outcome == 'failure'
         run: |
-          echo "Some games/*.json files are invalid and were left out of all.json (see the Build step)."
+          echo "Some games/*.json or recomps/*.json files are invalid and were left out of all.json (see the Build step)."
           exit 1
