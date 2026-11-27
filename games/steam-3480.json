@@ -1,0 +1,12 @@
+{
+  "key": "steam-3480",
+  "title": "Peggle Deluxe",
+  "fields": {
+    "controls": {
+      "controller": "none",
+      "vr": "none",
+      "touch": true
+    }
+  },
+  "updatedAt": "2026-11-27T16:22:21.597Z"
+}
