@@ -1,0 +1,12 @@
+{
+  "key": "steam-3540",
+  "title": "Peggle Nights",
+  "fields": {
+    "controls": {
+      "controller": "none",
+      "vr": "none",
+      "touch": true
+    }
+  },
+  "updatedAt": "2026-11-27T16:22:31.868Z"
+}
