@@ -1,0 +1,12 @@
+{
+  "key": "steam-851890",
+  "title": "Gal*Gun 2",
+  "fields": {
+    "controls": {
+      "controller": "full",
+      "vr": "supported",
+      "lightgun": true
+    }
+  },
+  "updatedAt": "2026-11-27T22:58:03.631Z"
+}
