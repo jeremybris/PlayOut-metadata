@@ -1,0 +1,12 @@
+{
+  "key": "steam-305380",
+  "title": "Blue Estate",
+  "fields": {
+    "controls": {
+      "controller": "partial",
+      "vr": "none",
+      "lightgun": true
+    }
+  },
+  "updatedAt": "2026-11-27T22:57:58.690Z"
+}
