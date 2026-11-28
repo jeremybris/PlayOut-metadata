@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T00:48:12.648Z",
+  "generatedAt": "2026-11-28T00:48:28.869Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "ps3-blus31274": {
@@ -170,6 +170,13 @@
     "steam-3046600": {
       "difficulty": "hard"
     },
+    "steam-305380": {
+      "controls": {
+        "controller": "partial",
+        "vr": "none",
+        "lightgun": true
+      }
+    },
     "steam-317400": {
       "difficulty": "hard"
     },
@@ -241,6 +248,13 @@
     },
     "steam-499180": {
       "difficulty": "hard"
+    },
+    "steam-511740": {
+      "controls": {
+        "controller": "full",
+        "vr": "none",
+        "lightgun": true
+      }
     },
     "steam-570940": {
       "difficulty": "hard"
