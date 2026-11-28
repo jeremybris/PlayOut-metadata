@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T17:08:51.190Z",
+  "generatedAt": "2026-11-28T00:46:49.154Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "ps4-gravity-rush-2": {
@@ -160,6 +160,13 @@
     },
     "steam-335300": {
       "difficulty": "hard"
+    },
+    "steam-3376690": {
+      "controls": {
+        "controller": "full",
+        "vr": "none",
+        "lightgun": true
+      }
     },
     "steam-3385670": {
       "controls": {
