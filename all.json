@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T00:48:28.869Z",
+  "generatedAt": "2026-11-28T00:48:39.663Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
     "ps3-blus31274": {
@@ -173,6 +173,13 @@
     "steam-305380": {
       "controls": {
         "controller": "partial",
+        "vr": "none",
+        "lightgun": true
+      }
+    },
+    "steam-3102290": {
+      "controls": {
+        "controller": "full",
         "vr": "none",
         "lightgun": true
       }
