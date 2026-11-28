@@ -1,7 +1,14 @@
 {
-  "generatedAt": "2026-11-28T00:47:04.944Z",
+  "generatedAt": "2026-11-28T00:47:20.005Z",
   "relayUrl": "https://playout-metadata-relay.jeremybris.workers.dev",
   "games": {
+    "ps3-blus31274": {
+      "controls": {
+        "controller": "full",
+        "vr": "none",
+        "lightgun": true
+      }
+    },
     "ps4-gravity-rush-2": {
       "difficulty": "easy"
     },
